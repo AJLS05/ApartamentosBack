@@ -1,5 +1,9 @@
 package hn.proyecto.apartamentos.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -21,7 +25,6 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Inquilinos {
-    							
 
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)  
@@ -43,10 +46,9 @@ public class Inquilinos {
     @Column(name="FechaIngreso")
     private String FechaIngreso;
 
-    @JoinColumn(name="codigoCuota", referencedColumnName = "codigoCuota")
-    @Column(name="Cuota")
-    @OneToMany
-    private Cuotas Cuota;
+    
+    @OneToMany(mappedBy = "codigoCuota", cascade = CascadeType.ALL)
+    private List<Cuotas> Cuota = new ArrayList<>();
 
     @OneToOne
     @JoinColumn(name="numApartamento", referencedColumnName = "numApartamento")

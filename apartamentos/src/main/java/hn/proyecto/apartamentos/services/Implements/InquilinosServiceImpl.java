@@ -3,11 +3,13 @@ package hn.proyecto.apartamentos.services.Implements;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import hn.proyecto.apartamentos.model.Inquilinos;
 import hn.proyecto.apartamentos.repositories.InquilinosRepository;
 import hn.proyecto.apartamentos.services.InquilinosService;
 
+@Service
 public class InquilinosServiceImpl implements InquilinosService{
 
     @Autowired

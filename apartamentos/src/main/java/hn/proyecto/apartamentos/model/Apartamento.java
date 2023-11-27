@@ -1,5 +1,9 @@
 package hn.proyecto.apartamentos.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -44,8 +48,7 @@ public class Apartamento {
     @JoinColumn(name="codigoInquilino", referencedColumnName = "codigoInquilino")
     private Inquilinos inquilino;
     
-    @OneToMany
-    @JoinColumn(name="codigoCuota", referencedColumnName = "codigoCuota")
-    private Cuotas Cuota;
+    @OneToMany(mappedBy = "numApartamento", cascade = CascadeType.ALL)
+    private List<Cuotas> cuotas = new ArrayList<>();
         
 }

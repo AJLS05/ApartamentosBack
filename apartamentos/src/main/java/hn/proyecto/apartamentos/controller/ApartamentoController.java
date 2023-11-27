@@ -35,13 +35,6 @@ public class ApartamentoController {
 
     @PostMapping("/crear")
     public Apartamento crearApartamento(@RequestBody Apartamento nvoApartamento){     
-        if(nvoApartamento.getInquilino() != null)   {
-            nvoApartamento.getInquilino().setApartamentos(nvoApartamento);
-        }
-
-        if (nvoApartamento.getDueno() != null) {
-            nvoApartamento.getDueno().setApartamentos(nvoApartamento);
-        }
 
         return this.apartamentoServiceImpl.crearApartamento(nvoApartamento);
     }

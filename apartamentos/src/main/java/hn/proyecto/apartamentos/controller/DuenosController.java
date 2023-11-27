@@ -23,7 +23,7 @@ import hn.proyecto.apartamentos.services.Implements.DuenosServiceImpl;
 class DuenosController {
 
     @Autowired
-    DuenosServiceImpl duenosServiceImpl;
+    private DuenosServiceImpl duenosServiceImpl;
 
     @GetMapping("/obtener/todos")
     public List<Duenos> obtenerTodos() {
@@ -43,8 +43,8 @@ class DuenosController {
 
     @PutMapping("/agregarApartamento")
     public String agregarApartamento(@RequestParam(name="IdDueno") int IdDueno,
-                                  @RequestBody Apartamento numApartamento){
-        return this.duenosServiceImpl.agregarDuenoApp(IdDueno, numApartamento);
+                                  @RequestBody List<Apartamento> Apartamentos){
+        return this.duenosServiceImpl.agregarDuenoApp(IdDueno, Apartamentos);
     }
 
 

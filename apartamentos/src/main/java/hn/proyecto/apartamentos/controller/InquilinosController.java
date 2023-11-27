@@ -19,7 +19,7 @@ import hn.proyecto.apartamentos.services.Implements.InquilinosServiceImpl;
 class resourceNameController {
 
     @Autowired
-    InquilinosServiceImpl inquilinosServiceImpl;
+    private InquilinosServiceImpl inquilinosServiceImpl;
 
     @GetMapping
     public List<Inquilinos> obtenerTodos() {

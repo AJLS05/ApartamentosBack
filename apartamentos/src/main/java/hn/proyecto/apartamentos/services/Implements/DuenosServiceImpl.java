@@ -3,11 +3,14 @@ package hn.proyecto.apartamentos.services.Implements;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import hn.proyecto.apartamentos.model.Apartamento;
 import hn.proyecto.apartamentos.model.Duenos;
 import hn.proyecto.apartamentos.repositories.DuenosRepository;
 import hn.proyecto.apartamentos.services.DuenosService;
 
+@Service
 public class DuenosServiceImpl implements DuenosService{
 
     @Autowired
@@ -24,17 +27,17 @@ public class DuenosServiceImpl implements DuenosService{
     }
 
     @Override
-    public String agregarDuenoApp(int IdDueno, Apartamento numApartamento) {
+    public String agregarDuenoApp(int IdDueno, List<Apartamento> Apartamentos) {
         Duenos DuenoAAgregar = duenosRepository.findById(IdDueno).get();
 
         if(DuenoAAgregar != null){
-            DuenoAAgregar.setApartamentos(numApartamento);
+            DuenoAAgregar.setApartamentos(Apartamentos);
             
             this.duenosRepository.save(DuenoAAgregar);
-            return "Se ha Agregado el Dueno: " +DuenoAAgregar.getIdDueno()+" al apartamento "+numApartamento;
+            return "Se ha Agregado el Dueno: " +DuenoAAgregar.getIdDueno()+" al apartamento "+Apartamentos;
         }
 
-        return "No existe el apartamento con num: " + numApartamento;
+        return "No existe el apartamento con num: " + Apartamentos;
     }
 
     @Override

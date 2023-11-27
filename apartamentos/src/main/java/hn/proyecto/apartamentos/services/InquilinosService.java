@@ -2,8 +2,10 @@ package hn.proyecto.apartamentos.services;
 
 import java.util.List;
 
-import hn.proyecto.apartamentos.model.Inquilinos;
+import org.springframework.stereotype.Service;
 
+import hn.proyecto.apartamentos.model.Inquilinos;
+@Service
 public interface InquilinosService {
     public Inquilinos crearInquilino(Inquilinos nvoInquilino);
 
