@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import hn.proyecto.apartamentos.model.Apartamento;
 import hn.proyecto.apartamentos.model.Inquilinos;
 import hn.proyecto.apartamentos.repositories.InquilinosRepository;
 import hn.proyecto.apartamentos.services.InquilinosService;
@@ -16,7 +17,8 @@ public class InquilinosServiceImpl implements InquilinosService{
     private InquilinosRepository inquilinosRepository;
 
     @Override
-    public Inquilinos crearInquilino(Inquilinos nvoInquilino) {
+    public Inquilinos crearInquilino(Inquilinos nvoInquilino, Apartamento Apartamento) {
+
         return inquilinosRepository.save(nvoInquilino);
     }
 

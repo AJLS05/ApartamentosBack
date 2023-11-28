@@ -11,17 +11,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import hn.proyecto.apartamentos.model.Apartamento;
 import hn.proyecto.apartamentos.model.Inquilinos;
 import hn.proyecto.apartamentos.services.Implements.InquilinosServiceImpl;
 
 @RestController
 @RequestMapping("/Inquilinos")
-class resourceNameController {
+class InquilinoController {
 
     @Autowired
     private InquilinosServiceImpl inquilinosServiceImpl;
 
-    @GetMapping
+    @GetMapping("/obtener/todos")
     public List<Inquilinos> obtenerTodos() {
         return this.inquilinosServiceImpl.obtenerTodosInquilinos();
     }
@@ -32,9 +33,9 @@ class resourceNameController {
     }
 
     @PostMapping("/crear")
-    public Inquilinos crearInquilino(@RequestBody Inquilinos nvoiInquilino){
-
-        return this.inquilinosServiceImpl.crearInquilino(nvoiInquilino);
+    public Inquilinos crearInquilino(@RequestBody Inquilinos nvoiInquilino, Apartamento Apartamento){
+        nvoiInquilino.setApartamentos(Apartamento);
+        return this.inquilinosServiceImpl.crearInquilino(nvoiInquilino, Apartamento);
     }
     
     @DeleteMapping("/eliminar")

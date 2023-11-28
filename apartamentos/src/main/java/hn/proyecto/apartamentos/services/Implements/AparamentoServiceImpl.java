@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import hn.proyecto.apartamentos.model.Apartamento;
+import hn.proyecto.apartamentos.model.Duenos;
 import hn.proyecto.apartamentos.model.Inquilinos;
 import hn.proyecto.apartamentos.repositories.ApartamentoRepository;
 import hn.proyecto.apartamentos.services.ApartamentoService;
@@ -18,7 +19,8 @@ public class AparamentoServiceImpl implements ApartamentoService{
     private ApartamentoRepository apartamentoRepository;
 
     @Override
-    public Apartamento crearApartamento(Apartamento nvoApartamento) {
+    public Apartamento crearApartamento(Apartamento nvoApartamento, Duenos Dueno) {
+        nvoApartamento.setDueno(Dueno);
         return apartamentoRepository.save(nvoApartamento);
     }
 

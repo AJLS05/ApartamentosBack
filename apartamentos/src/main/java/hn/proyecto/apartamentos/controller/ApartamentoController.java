@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import hn.proyecto.apartamentos.model.Apartamento;
+import hn.proyecto.apartamentos.model.Duenos;
 import hn.proyecto.apartamentos.model.Inquilinos;
 import hn.proyecto.apartamentos.services.Implements.AparamentoServiceImpl;
 
@@ -34,9 +35,9 @@ public class ApartamentoController {
     }
 
     @PostMapping("/crear")
-    public Apartamento crearApartamento(@RequestBody Apartamento nvoApartamento){     
+    public Apartamento crearApartamento(@RequestBody Apartamento nvoApartamento, Duenos dueno){     
 
-        return this.apartamentoServiceImpl.crearApartamento(nvoApartamento);
+        return this.apartamentoServiceImpl.crearApartamento(nvoApartamento, dueno);
     }
 
     @PutMapping("/agregarInquilino")
