@@ -22,24 +22,24 @@ import lombok.Setter;
 public class Cuotas {
     					
     @Id
-    @Column(name="codigoCuota")
+    @Column(name="codigocuota")
     @GeneratedValue(strategy =  GenerationType.IDENTITY)  
     private int codigoCuota;
     
     @ManyToOne
-    @JoinColumn(name="codigoInquilino", referencedColumnName = "codigoInquilino")
+    @JoinColumn(name="codigoinquilino", referencedColumnName = "codigoinquilino")
     private Inquilinos inquilino;
     
-    @Column(name="numApartamento")
+    @Column(name="numapartamento")
     private int numApartamento;
     
-    @Column(name="Monto")	
-    private float Monto;
+    @Column(name="monto")	
+    private float monto;
     
-    @Column(name="Descripcion")
-    private String Descripcion;
+    @Column(name="descripcion")
+    private String descripcion;
     
-    @Column(name="FechaCobro;")
-    private String FechaCobro;	
+    @Column(name="fechaCobro")
+    private String fechaCobro;	
         
 }

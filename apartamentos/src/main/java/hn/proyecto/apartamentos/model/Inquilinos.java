@@ -28,30 +28,30 @@ public class Inquilinos {
 
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)  
-    @Column(name="codigoInquilino")
+    @Column(name="codigoinquilino")
     private int codigoInquilino;
     
-    @Column(name="Nombre")
-    private String Nombre;
+    @Column(name="nombre")
+    private String nombre;
     
-    @Column(name="Apellido")
-    private String Apellido;
+    @Column(name="apellido")
+    private String apellido;
     
-    @Column(name="Telefono")	
-    private String Telefono;
+    @Column(name="telefono")	
+    private String telefono;
     
-    @Column(name="Correo")
-    private String Correo;
+    @Column(name="correo")
+    private String correo;
     
-    @Column(name="FechaIngreso")
-    private String FechaIngreso;
+    @Column(name="fechaIngreso")
+    private String fechaIngreso;
 
     
     @OneToMany(mappedBy = "codigoCuota", cascade = CascadeType.ALL)
-    private List<Cuotas> Cuota = new ArrayList<>();
+    private List<Cuotas> cuotas = new ArrayList<>();
 
     @OneToOne
-    @JoinColumn(name="numApartamento", referencedColumnName = "numApartamento")
-    private Apartamento Apartamentos;	
+    @JoinColumn(name="numapartamento", referencedColumnName = "numapartamento")
+    private Apartamento apartamentos;	
         
 }

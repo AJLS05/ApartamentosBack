@@ -26,22 +26,22 @@ public class Duenos {
     								
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)  
-    @Column(name="IdDueno")
-    private int IdDueno;
+    @Column(name="iddueno")
+    private int idDueno;
     
-    @Column(name="Nombre")
-    private String Nombre;
+    @Column(name="nombre")
+    private String nombre;
     
-    @Column(name="Apellido")
-    private String Apellido;
+    @Column(name="apellido")
+    private String apellido;
     
-    @Column(name="Telefono")	
-    private String Telefono;
+    @Column(name="telefono")	
+    private String telefono;
     
-    @Column(name="Correo")
-    private String Correo;
+    @Column(name="correo")
+    private String correo;
     
-    @OneToMany(mappedBy = "numApartamento", cascade = CascadeType.ALL)
-    private List<Apartamento> Apartamentos = new ArrayList<>();
+    @OneToMany(mappedBy = "numapartamento", cascade = CascadeType.ALL)
+    private List<Apartamento> apartamentos = new ArrayList<>();
         
 }

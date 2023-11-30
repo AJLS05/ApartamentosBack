@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name="apartamento")
+@Table(name="apartamentos")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -28,28 +28,28 @@ import lombok.Setter;
 public class Apartamento {
 
     @Id
-    @Column(name="numApartamento")
+    @Column(name="numapartamento")
     @GeneratedValue(strategy =  GenerationType.IDENTITY)  
     private int numApartamento;
     
     @Column(name="AreaApart")
-    private int AreaApart;
+    private int areaApart;
     
-    @Column(name="PrecioXmetro")
-    private String PrecioXmetro;
+    @Column(name="precioXmetro")
+    private String precioXmetro;
     
     @Column(name="Disponible")	
     private boolean Disponible;
     
     @ManyToOne
-    @JoinColumn(name="IdDueno", referencedColumnName = "IdDueno")
-    private Duenos Dueno;
+    @JoinColumn(name="iddueno", referencedColumnName = "iddueno")
+    private Duenos dueno;
     
     @OneToOne
-    @JoinColumn(name="codigoInquilino", referencedColumnName = "codigoInquilino")
+    @JoinColumn(name="codigoinquilino", referencedColumnName = "codigoinquilino")
     private Inquilinos inquilino;
     
-    @OneToMany(mappedBy = "numApartamento", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "numapartamento", cascade = CascadeType.ALL)
     private List<Cuotas> cuotas = new ArrayList<>();
         
 }
