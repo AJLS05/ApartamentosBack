@@ -34,7 +34,7 @@ public class Cuotas {
     private int numApartamento;
     
     @Column(name="Monto")	
-    private String Monto;
+    private float Monto;
     
     @Column(name="Descripcion")
     private String Descripcion;

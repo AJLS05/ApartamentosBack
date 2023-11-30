@@ -30,10 +30,10 @@ public class Duenos {
     private int IdDueno;
     
     @Column(name="Nombre")
-    private int Nombre;
+    private String Nombre;
     
     @Column(name="Apellido")
-    private int Apellido;
+    private String Apellido;
     
     @Column(name="Telefono")	
     private String Telefono;
