@@ -32,14 +32,14 @@ public class Apartamento {
     @GeneratedValue(strategy =  GenerationType.IDENTITY)  
     private int numApartamento;
     
-    @Column(name="AreaApart")
-    private int areaApart;
+    @Column(name="area")
+    private int area;
     
     @Column(name="precioXmetro")
     private String precioXmetro;
     
-    @Column(name="Disponible")	
-    private boolean Disponible;
+    @Column(name="disponible")	
+    private boolean disponible;
     
     @ManyToOne
     @JoinColumn(name="iddueno", referencedColumnName = "iddueno")
