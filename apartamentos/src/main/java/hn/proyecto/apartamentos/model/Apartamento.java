@@ -3,6 +3,8 @@ package hn.proyecto.apartamentos.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -35,7 +37,7 @@ public class Apartamento {
     @Column(name="area")
     private int area;
     
-    @Column(name="precioXmetro")
+    @Column(name="precioxmetro")
     private String precioXmetro;
     
     @Column(name="disponible")	
@@ -49,7 +51,8 @@ public class Apartamento {
     @JoinColumn(name="codigoinquilino", referencedColumnName = "codigoinquilino")
     private Inquilinos inquilino;
     
-    @OneToMany(mappedBy = "numapartamento", cascade = CascadeType.ALL)
+    @JsonIgnore
+    @OneToMany(mappedBy = "apartamento", cascade = CascadeType.ALL)
     private List<Cuotas> cuotas = new ArrayList<>();
         
 }

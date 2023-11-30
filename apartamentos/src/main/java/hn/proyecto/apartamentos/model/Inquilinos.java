@@ -43,7 +43,7 @@ public class Inquilinos {
     @Column(name="correo")
     private String correo;
     
-    @Column(name="fechaIngreso")
+    @Column(name="fechaingreso")
     private String fechaIngreso;
 
     
@@ -52,6 +52,6 @@ public class Inquilinos {
 
     @OneToOne
     @JoinColumn(name="numapartamento", referencedColumnName = "numapartamento")
-    private Apartamento apartamentos;	
+    private Apartamento apartamento;	
         
 }

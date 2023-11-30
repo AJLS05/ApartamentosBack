@@ -34,7 +34,7 @@ class InquilinoController {
 
     @PostMapping("/crear")
     public Inquilinos crearInquilino(@RequestBody Inquilinos nvoiInquilino, Apartamento Apartamento){
-        nvoiInquilino.setApartamentos(Apartamento);
+        nvoiInquilino.setApartamento(Apartamento);
         return this.inquilinosServiceImpl.crearInquilino(nvoiInquilino, Apartamento);
     }
     

@@ -30,8 +30,9 @@ public class Cuotas {
     @JoinColumn(name="codigoinquilino", referencedColumnName = "codigoinquilino")
     private Inquilinos inquilino;
     
-    @Column(name="numapartamento")
-    private int numApartamento;
+    @ManyToOne
+    @JoinColumn(name = "numapartamento", referencedColumnName = "numapartamento")
+    private Apartamento apartamento;
     
     @Column(name="monto")	
     private float monto;
@@ -39,7 +40,7 @@ public class Cuotas {
     @Column(name="descripcion")
     private String descripcion;
     
-    @Column(name="fechaCobro")
+    @Column(name="fechacobro")
     private String fechaCobro;	
         
 }

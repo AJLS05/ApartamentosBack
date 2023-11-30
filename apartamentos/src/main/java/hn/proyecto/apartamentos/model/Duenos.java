@@ -41,7 +41,7 @@ public class Duenos {
     @Column(name="correo")
     private String correo;
     
-    @OneToMany(mappedBy = "numapartamento", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "dueno", cascade = CascadeType.ALL)
     private List<Apartamento> apartamentos = new ArrayList<>();
         
 }
