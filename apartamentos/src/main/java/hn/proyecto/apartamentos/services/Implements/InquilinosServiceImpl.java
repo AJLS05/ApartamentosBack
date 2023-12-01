@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import hn.proyecto.apartamentos.model.Apartamento;
-import hn.proyecto.apartamentos.model.Inquilinos;
+import hn.proyecto.apartamentos.model.Inquilino;
 import hn.proyecto.apartamentos.repositories.InquilinosRepository;
 import hn.proyecto.apartamentos.services.InquilinosService;
 
@@ -17,19 +17,19 @@ public class InquilinosServiceImpl implements InquilinosService{
     private InquilinosRepository inquilinosRepository;
 
     @Override
-    public Inquilinos crearInquilino(Inquilinos nvoInquilino, Apartamento Apartamento) {
+    public Inquilino crearInquilino(Inquilino nvoInquilino, Apartamento Apartamento) {
 
         return inquilinosRepository.save(nvoInquilino);
     }
 
     @Override
-    public Inquilinos obtenerInquilino(int codigoInquilino) {
+    public Inquilino obtenerInquilino(int codigoInquilino) {
         return inquilinosRepository.findById(codigoInquilino).get();
     }
 
     @Override
     public String eliminarInquilino(int codigoInquilino) {
-        Inquilinos InqEliminar = this.inquilinosRepository.findById(codigoInquilino).get();
+        Inquilino InqEliminar = this.inquilinosRepository.findById(codigoInquilino).get();
 
         if(InqEliminar != null){
             this.inquilinosRepository.delete(InqEliminar);
@@ -40,7 +40,7 @@ public class InquilinosServiceImpl implements InquilinosService{
     }
 
     @Override
-    public List<Inquilinos> obtenerTodosInquilinos() {
+    public List<Inquilino> obtenerTodosInquilinos() {
         return this.inquilinosRepository.findAll();
     }
     

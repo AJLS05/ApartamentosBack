@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import hn.proyecto.apartamentos.model.Cuotas;
+import hn.proyecto.apartamentos.model.Cuota;
 import hn.proyecto.apartamentos.repositories.CuotasRepository;
 import hn.proyecto.apartamentos.services.CuotasService;
 
@@ -16,12 +16,12 @@ public class CuotasServiceImpl implements CuotasService {
     private CuotasRepository cuotaRepository;
 
     @Override
-    public Cuotas crearCuota(Cuotas nvaCuota) {
+    public Cuota crearCuota(Cuota nvaCuota) {
         return cuotaRepository.save(nvaCuota);
     }
 
     @Override
-    public List<Cuotas> obtenerTodosCuotas() {
+    public List<Cuota> obtenerTodosCuotas() {
         return this.cuotaRepository.findAll();
     }
     

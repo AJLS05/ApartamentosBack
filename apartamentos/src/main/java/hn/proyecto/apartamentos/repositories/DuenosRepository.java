@@ -2,6 +2,6 @@ package hn.proyecto.apartamentos.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import hn.proyecto.apartamentos.model.Duenos;
+import hn.proyecto.apartamentos.model.Dueno;
 
-public interface DuenosRepository extends JpaRepository<Duenos, Integer>{}
+public interface DuenosRepository extends JpaRepository<Dueno, Integer>{}

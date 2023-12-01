@@ -35,24 +35,24 @@ public class Apartamento {
     private int numApartamento;
     
     @Column(name="area")
-    private int area;
+    private float area;
     
     @Column(name="precioxmetro")
-    private String precioXmetro;
+    private float precioXmetro;
     
     @Column(name="disponible")	
     private boolean disponible;
     
     @ManyToOne
     @JoinColumn(name="iddueno", referencedColumnName = "iddueno")
-    private Duenos dueno;
+    private Dueno dueno;
     
     @OneToOne
     @JoinColumn(name="codigoinquilino", referencedColumnName = "codigoinquilino")
-    private Inquilinos inquilino;
+    private Inquilino inquilino;
     
     @JsonIgnore
     @OneToMany(mappedBy = "apartamento", cascade = CascadeType.ALL)
-    private List<Cuotas> cuotas = new ArrayList<>();
+    private List<Cuota> cuotas = new ArrayList<>();
         
 }

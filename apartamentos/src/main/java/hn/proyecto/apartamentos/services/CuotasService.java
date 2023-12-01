@@ -4,13 +4,13 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import hn.proyecto.apartamentos.model.Cuotas;
+import hn.proyecto.apartamentos.model.Cuota;
 
 @Service
 public interface CuotasService {
-    public Cuotas crearCuota(Cuotas nvaCuota);
+    public Cuota crearCuota(Cuota nvaCuota);
 
-    public List<Cuotas> obtenerTodosCuotas();
+    public List<Cuota> obtenerTodosCuotas();
     
 }
 

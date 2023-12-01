@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import hn.proyecto.apartamentos.model.Apartamento;
-import hn.proyecto.apartamentos.model.Duenos;
-import hn.proyecto.apartamentos.model.Inquilinos;
+import hn.proyecto.apartamentos.model.Dueno;
+import hn.proyecto.apartamentos.model.Inquilino;
 
 /**
  * ApartamentoService
@@ -14,7 +14,7 @@ import hn.proyecto.apartamentos.model.Inquilinos;
 @Service
 public interface ApartamentoService {
 
-    public Apartamento crearApartamento(Apartamento nvoApartamento, Duenos Dueno);
+    public Apartamento crearApartamento(Apartamento nvoApartamento, Dueno Dueno);
 
     public Apartamento obtenerApartamentoPorNum(int numApartamento);
 
@@ -22,5 +22,5 @@ public interface ApartamentoService {
 
     public List<Apartamento> obtenerTodosApartamentos();
 
-    public String agregarInquilino(int numApartamento, Inquilinos inquilino);
+    public String agregarInquilino(int numApartamento, Inquilino inquilino);
 }
