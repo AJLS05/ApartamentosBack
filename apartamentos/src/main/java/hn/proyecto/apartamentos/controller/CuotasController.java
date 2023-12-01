@@ -14,7 +14,7 @@ import hn.proyecto.apartamentos.services.Implements.CuotasServiceImpl;
 
 @RestController
 @RequestMapping("/api/cuotas")
-class resourceNameController {
+class CuotasController {
 
     @Autowired
     private CuotasServiceImpl cuotasServiceImpl;
