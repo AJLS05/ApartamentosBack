@@ -19,7 +19,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Cuotas {
+public class Cuota {
     					
     @Id
     @Column(name="codigocuota")
@@ -28,7 +28,7 @@ public class Cuotas {
     
     @ManyToOne
     @JoinColumn(name="codigoinquilino", referencedColumnName = "codigoinquilino")
-    private Inquilinos inquilino;
+    private Inquilino inquilino;
     
     @ManyToOne
     @JoinColumn(name = "numapartamento", referencedColumnName = "numapartamento")

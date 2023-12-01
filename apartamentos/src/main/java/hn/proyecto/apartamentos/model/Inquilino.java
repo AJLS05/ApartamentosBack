@@ -3,6 +3,8 @@ package hn.proyecto.apartamentos.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -24,7 +26,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Inquilinos {
+public class Inquilino {
 
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)  
@@ -46,10 +48,11 @@ public class Inquilinos {
     @Column(name="fechaingreso")
     private String fechaIngreso;
 
-    
+    @JsonIgnore
     @OneToMany(mappedBy = "codigoCuota", cascade = CascadeType.ALL)
-    private List<Cuotas> cuotas = new ArrayList<>();
+    private List<Cuota> cuotas = new ArrayList<>();
 
+    @JsonIgnore
     @OneToOne
     @JoinColumn(name="numapartamento", referencedColumnName = "numapartamento")
     private Apartamento apartamento;	

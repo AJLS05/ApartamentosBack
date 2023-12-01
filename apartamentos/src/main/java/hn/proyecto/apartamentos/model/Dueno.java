@@ -3,6 +3,8 @@ package hn.proyecto.apartamentos.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -22,7 +24,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Duenos {
+public class Dueno {
     								
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)  
@@ -41,6 +43,7 @@ public class Duenos {
     @Column(name="correo")
     private String correo;
     
+    @JsonIgnore
     @OneToMany(mappedBy = "dueno", cascade = CascadeType.ALL)
     private List<Apartamento> apartamentos = new ArrayList<>();
         
