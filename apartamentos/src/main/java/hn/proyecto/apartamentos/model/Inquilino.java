@@ -30,8 +30,8 @@ public class Inquilino {
 
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)  
-    @Column(name="codigoinquilino")
-    private int codigoInquilino;
+    @Column(name="idinquilino")
+    private int idInquilino;
     
     @Column(name="nombre")
     private String nombre;

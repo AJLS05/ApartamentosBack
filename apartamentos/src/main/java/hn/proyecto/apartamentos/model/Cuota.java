@@ -27,7 +27,7 @@ public class Cuota {
     private int codigoCuota;
     
     @ManyToOne
-    @JoinColumn(name="codigoinquilino", referencedColumnName = "codigoinquilino")
+    @JoinColumn(name="idinquilino", referencedColumnName = "idinquilino")
     private Inquilino inquilino;
     
     @ManyToOne

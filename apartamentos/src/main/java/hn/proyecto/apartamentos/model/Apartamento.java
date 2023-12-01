@@ -48,7 +48,7 @@ public class Apartamento {
     private Dueno dueno;
     
     @OneToOne
-    @JoinColumn(name="codigoinquilino", referencedColumnName = "codigoinquilino")
+    @JoinColumn(name="idinquilino", referencedColumnName = "idinquilino")
     private Inquilino inquilino;
     
     @JsonIgnore
