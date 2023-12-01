@@ -15,28 +15,28 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import hn.proyecto.apartamentos.model.Apartamento;
-import hn.proyecto.apartamentos.model.Duenos;
+import hn.proyecto.apartamentos.model.Dueno;
 import hn.proyecto.apartamentos.services.Implements.DuenosServiceImpl;
 
 @RestController
-@RequestMapping("/Duenos")
+@RequestMapping("/api/duenos")
 class DuenosController {
 
     @Autowired
     private DuenosServiceImpl duenosServiceImpl;
 
     @GetMapping("/obtener/todos")
-    public List<Duenos> obtenerTodos() {
+    public List<Dueno> obtenerTodos() {
         return this.duenosServiceImpl.obtenerTodosDuenos();
     }
 
     @GetMapping("/obtener")
-    public Duenos obtenerDueno(@RequestParam(name="IdDueno") int IdDueno){
+    public Dueno obtenerDueno(@RequestParam(name="IdDueno") int IdDueno){
         return this.duenosServiceImpl.obtenerDueno(IdDueno);
     }
 
     @PostMapping("/crear")
-    public Duenos crearDuenos(@RequestBody Duenos nvoDueno){
+    public Dueno crearDuenos(@RequestBody Dueno nvoDueno){
 
         return this.duenosServiceImpl.crearDueno(nvoDueno);
     }

@@ -12,28 +12,28 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import hn.proyecto.apartamentos.model.Apartamento;
-import hn.proyecto.apartamentos.model.Inquilinos;
+import hn.proyecto.apartamentos.model.Inquilino;
 import hn.proyecto.apartamentos.services.Implements.InquilinosServiceImpl;
 
 @RestController
-@RequestMapping("/Inquilinos")
+@RequestMapping("/api/inquilinos")
 class InquilinoController {
 
     @Autowired
     private InquilinosServiceImpl inquilinosServiceImpl;
 
     @GetMapping("/obtener/todos")
-    public List<Inquilinos> obtenerTodos() {
+    public List<Inquilino> obtenerTodos() {
         return this.inquilinosServiceImpl.obtenerTodosInquilinos();
     }
 
     @GetMapping("/obtener")
-    public Inquilinos obtenerInquilino(@RequestParam(name="codigoInquilino") int codigoInquilino){
+    public Inquilino obtenerInquilino(@RequestParam(name="codigoInquilino") int codigoInquilino){
         return this.inquilinosServiceImpl.obtenerInquilino(codigoInquilino);
     }
 
     @PostMapping("/crear")
-    public Inquilinos crearInquilino(@RequestBody Inquilinos nvoiInquilino, Apartamento Apartamento){
+    public Inquilino crearInquilino(@RequestBody Inquilino nvoiInquilino, Apartamento Apartamento){
         nvoiInquilino.setApartamento(Apartamento);
         return this.inquilinosServiceImpl.crearInquilino(nvoiInquilino, Apartamento);
     }

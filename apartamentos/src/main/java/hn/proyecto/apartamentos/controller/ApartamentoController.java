@@ -13,12 +13,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import hn.proyecto.apartamentos.model.Apartamento;
-import hn.proyecto.apartamentos.model.Duenos;
-import hn.proyecto.apartamentos.model.Inquilinos;
+import hn.proyecto.apartamentos.model.Dueno;
+import hn.proyecto.apartamentos.model.Inquilino;
 import hn.proyecto.apartamentos.services.Implements.AparamentoServiceImpl;
 
 @RestController
-@RequestMapping("/api/Apartamentos")
+@RequestMapping("/api/apartamentos")
 public class ApartamentoController {
 
     @Autowired
@@ -35,14 +35,14 @@ public class ApartamentoController {
     }
 
     @PostMapping("/crear")
-    public Apartamento crearApartamento(@RequestBody Apartamento nvoApartamento, Duenos dueno){     
+    public Apartamento crearApartamento(@RequestBody Apartamento nvoApartamento, Dueno dueno){     
 
         return this.apartamentoServiceImpl.crearApartamento(nvoApartamento, dueno);
     }
 
     @PutMapping("/agregarInquilino")
     public String agregarInquilino(@RequestParam(name="numApartamento") int numApartamento,
-                                  @RequestBody Inquilinos inquilino){
+                                  @RequestBody Inquilino inquilino){
         return this.apartamentoServiceImpl.agregarInquilino(numApartamento, inquilino);
     }
 

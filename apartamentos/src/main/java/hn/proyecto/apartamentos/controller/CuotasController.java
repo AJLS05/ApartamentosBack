@@ -9,23 +9,23 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import hn.proyecto.apartamentos.model.Cuotas;
+import hn.proyecto.apartamentos.model.Cuota;
 import hn.proyecto.apartamentos.services.Implements.CuotasServiceImpl;
 
 @RestController
-@RequestMapping("/api/Cuotas")
+@RequestMapping("/api/cuotas")
 class resourceNameController {
 
     @Autowired
     private CuotasServiceImpl cuotasServiceImpl;
 
     @GetMapping("/obtener/todos")
-    public List<Cuotas> obtenerTodosCuotas() {
+    public List<Cuota> obtenerTodosCuotas() {
         return this.cuotasServiceImpl.obtenerTodosCuotas();
     }
 
     @PostMapping
-    public Cuotas CrearCuota(@RequestBody Cuotas nvaCuota){     
+    public Cuota CrearCuota(@RequestBody Cuota nvaCuota){     
         
     return this.cuotasServiceImpl.crearCuota(nvaCuota);    
     }
