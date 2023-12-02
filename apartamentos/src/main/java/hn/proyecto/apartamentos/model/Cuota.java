@@ -43,4 +43,6 @@ public class Cuota {
     @Column(name="fechacobro")
     private String fechaCobro;	
         
+    @Column(name = "cancelada")
+    private boolean cancelada;
 }
