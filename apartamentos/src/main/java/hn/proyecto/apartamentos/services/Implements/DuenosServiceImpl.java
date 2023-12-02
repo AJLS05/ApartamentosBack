@@ -7,14 +7,14 @@ import org.springframework.stereotype.Service;
 
 import hn.proyecto.apartamentos.model.Apartamento;
 import hn.proyecto.apartamentos.model.Dueno;
-import hn.proyecto.apartamentos.repositories.DuenosRepository;
+import hn.proyecto.apartamentos.repositories.DuenoRepository;
 import hn.proyecto.apartamentos.services.DuenosService;
 
 @Service
 public class DuenosServiceImpl implements DuenosService{
 
     @Autowired
-    private DuenosRepository duenosRepository;
+    private DuenoRepository duenosRepository;
 
     @Override
     public Dueno crearDueno(Dueno nvoDueno) {

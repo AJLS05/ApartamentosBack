@@ -7,33 +7,33 @@ import org.springframework.stereotype.Service;
 
 import hn.proyecto.apartamentos.model.Apartamento;
 import hn.proyecto.apartamentos.model.Inquilino;
-import hn.proyecto.apartamentos.repositories.InquilinosRepository;
+import hn.proyecto.apartamentos.repositories.InquilinoRepository;
 import hn.proyecto.apartamentos.services.InquilinosService;
 
 @Service
 public class InquilinosServiceImpl implements InquilinosService{
 
     @Autowired
-    private InquilinosRepository inquilinosRepository;
+    private InquilinoRepository inquilinosRepository;
 
     @Override
-    public Inquilino crearInquilino(Inquilino nvoInquilino, Apartamento Apartamento) {
+    public Inquilino crearInquilino(Inquilino nvoInquilino) {
 
         return inquilinosRepository.save(nvoInquilino);
     }
 
     @Override
-    public Inquilino obtenerInquilino(int codigoInquilino) {
-        return inquilinosRepository.findById(codigoInquilino).get();
+    public Inquilino obtenerInquilino(int idInquilino) {
+        return inquilinosRepository.findById(idInquilino).get();
     }
 
     @Override
-    public String eliminarInquilino(int codigoInquilino) {
-        Inquilino InqEliminar = this.inquilinosRepository.findById(codigoInquilino).get();
+    public String eliminarInquilino(int idInquilino) {
+        Inquilino InqEliminar = this.inquilinosRepository.findById(idInquilino).get();
 
         if(InqEliminar != null){
             this.inquilinosRepository.delete(InqEliminar);
-            return "Se ha eliminado el Dueno: " + InqEliminar.getCodigoInquilino(); 
+            return "Se ha eliminado el Dueno: " + InqEliminar.getIdInquilino(); 
         }
 
         return "No existe el Dueno con ID: " + InqEliminar;
