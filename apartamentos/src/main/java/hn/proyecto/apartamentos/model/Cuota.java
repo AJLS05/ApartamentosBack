@@ -1,5 +1,7 @@
 package hn.proyecto.apartamentos.model;
 
+import java.util.Date;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -41,7 +43,7 @@ public class Cuota {
     private String descripcion;
     
     @Column(name="fechacobro")
-    private String fechaCobro;	
+    private Date fechaCobro;	
         
     @Column(name = "cancelada")
     private boolean cancelada;
