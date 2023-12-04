@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -34,8 +35,8 @@ class DuenosController {
 
     
     @Operation(summary = "Buscar dueño", description = "Busca un dueño de apartamentos")
-    @GetMapping("/buscar")
-    public Dueno obtenerDueno(@RequestParam(name="idDueno") int idDueno){
+    @GetMapping("/buscar/{idDueno}")
+    public Dueno obtenerDueno(@PathVariable(name="idDueno") int idDueno){
         return this.duenosServiceImpl.obtenerDueno(idDueno);
     }
 
@@ -47,8 +48,8 @@ class DuenosController {
     }
 
     @Operation(summary = "Eliminar dueño", description = "Elimina un dueño de apartamentos")
-    @DeleteMapping("/eliminar")
-    public String eliminarDueno(@RequestParam(name="IdDueno") int IdDueno){
+    @DeleteMapping("/eliminar/{idDueno}")
+    public String eliminarDueno(@PathVariable(name="IdDueno") int IdDueno){
         return this.duenosServiceImpl.eliminarDueno(IdDueno);
     }
 }
