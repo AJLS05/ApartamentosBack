@@ -35,8 +35,8 @@ class DuenosController {
     
     @Operation(summary = "Buscar dueño", description = "Busca un dueño de apartamentos")
     @GetMapping("/buscar")
-    public Dueno obtenerDueno(@RequestParam(name="IdDueno") int IdDueno){
-        return this.duenosServiceImpl.obtenerDueno(IdDueno);
+    public Dueno obtenerDueno(@RequestParam(name="idDueno") int idDueno){
+        return this.duenosServiceImpl.obtenerDueno(idDueno);
     }
 
     @Operation(summary = "Crear nuevo dueño", description = "Crea un nuevo dueño de apartamentos")
