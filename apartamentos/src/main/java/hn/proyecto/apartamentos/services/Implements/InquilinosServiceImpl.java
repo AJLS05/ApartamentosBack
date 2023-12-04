@@ -6,41 +6,49 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import hn.proyecto.apartamentos.model.Apartamento;
-import hn.proyecto.apartamentos.model.Inquilinos;
-import hn.proyecto.apartamentos.repositories.InquilinosRepository;
+import hn.proyecto.apartamentos.model.Inquilino;
+import hn.proyecto.apartamentos.repositories.ApartamentoRepository;
+import hn.proyecto.apartamentos.repositories.InquilinoRepository;
 import hn.proyecto.apartamentos.services.InquilinosService;
 
 @Service
 public class InquilinosServiceImpl implements InquilinosService{
 
     @Autowired
-    private InquilinosRepository inquilinosRepository;
+    private InquilinoRepository inquilinosRepository;
+
+    @Autowired
+    private ApartamentoRepository apartamentoRepository;
 
     @Override
-    public Inquilinos crearInquilino(Inquilinos nvoInquilino, Apartamento Apartamento) {
+    public Inquilino crearInquilino(Inquilino nvoInquilino) {
 
         return inquilinosRepository.save(nvoInquilino);
     }
 
     @Override
-    public Inquilinos obtenerInquilino(int codigoInquilino) {
-        return inquilinosRepository.findById(codigoInquilino).get();
+    public Inquilino obtenerInquilino(int idInquilino) {
+        return inquilinosRepository.findById(idInquilino).get();
     }
 
     @Override
-    public String eliminarInquilino(int codigoInquilino) {
-        Inquilinos InqEliminar = this.inquilinosRepository.findById(codigoInquilino).get();
+    public String eliminarInquilino(int idInquilino) {
+        Inquilino InqEliminar = this.inquilinosRepository.findById(idInquilino).get();
 
         if(InqEliminar != null){
+            Apartamento apartamento = InqEliminar.getApartamento();
+            apartamento.setInquilino(null);
+            apartamento.setDisponible(true);
+            this.apartamentoRepository.save(apartamento);
             this.inquilinosRepository.delete(InqEliminar);
-            return "Se ha eliminado el Dueno: " + InqEliminar.getCodigoInquilino(); 
+            return "Se ha eliminado el Dueno: " + InqEliminar.getIdInquilino(); 
         }
 
         return "No existe el Dueno con ID: " + InqEliminar;
     }
 
     @Override
-    public List<Inquilinos> obtenerTodosInquilinos() {
+    public List<Inquilino> obtenerTodosInquilinos() {
         return this.inquilinosRepository.findAll();
     }
     

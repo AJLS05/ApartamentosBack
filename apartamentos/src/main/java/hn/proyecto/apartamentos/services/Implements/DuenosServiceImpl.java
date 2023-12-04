@@ -6,29 +6,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import hn.proyecto.apartamentos.model.Apartamento;
-import hn.proyecto.apartamentos.model.Duenos;
-import hn.proyecto.apartamentos.repositories.DuenosRepository;
+import hn.proyecto.apartamentos.model.Dueno;
+import hn.proyecto.apartamentos.repositories.DuenoRepository;
 import hn.proyecto.apartamentos.services.DuenosService;
 
 @Service
 public class DuenosServiceImpl implements DuenosService{
 
     @Autowired
-    private DuenosRepository duenosRepository;
+    private DuenoRepository duenosRepository;
 
     @Override
-    public Duenos crearDueno(Duenos nvoDueno) {
+    public Dueno crearDueno(Dueno nvoDueno) {
         return duenosRepository.save(nvoDueno);
     }
 
     @Override
-    public Duenos obtenerDueno(int IdDueno) {
+    public Dueno obtenerDueno(int IdDueno) {
         return duenosRepository.findById(IdDueno).get();
     }
 
     @Override
     public String agregarDuenoApp(int IdDueno, List<Apartamento> Apartamentos) {
-        Duenos DuenoAAgregar = duenosRepository.findById(IdDueno).get();
+        Dueno DuenoAAgregar = duenosRepository.findById(IdDueno).get();
 
         if(DuenoAAgregar != null){
             DuenoAAgregar.setApartamentos(Apartamentos);
@@ -42,7 +42,7 @@ public class DuenosServiceImpl implements DuenosService{
 
     @Override
     public String eliminarDueno(int IdDueno) {
-        Duenos AppEliminar = this.duenosRepository.findById(IdDueno).get();
+        Dueno AppEliminar = this.duenosRepository.findById(IdDueno).get();
 
         if(AppEliminar != null){
             this.duenosRepository.delete(AppEliminar);
@@ -53,7 +53,7 @@ public class DuenosServiceImpl implements DuenosService{
     }
 
     @Override
-    public List<Duenos> obtenerTodosDuenos() {
+    public List<Dueno> obtenerTodosDuenos() {
         return this.duenosRepository.findAll();
     }
     

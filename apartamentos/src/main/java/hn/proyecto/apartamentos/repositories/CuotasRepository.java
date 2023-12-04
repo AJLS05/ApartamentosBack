@@ -2,8 +2,8 @@ package hn.proyecto.apartamentos.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import hn.proyecto.apartamentos.model.Cuotas;
+import hn.proyecto.apartamentos.model.Cuota;
 
-public interface CuotasRepository extends JpaRepository<Cuotas, Integer> {
+public interface CuotasRepository extends JpaRepository<Cuota, Integer> {
 
 }

@@ -3,6 +3,8 @@ package hn.proyecto.apartamentos.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -24,34 +26,35 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Inquilinos {
+public class Inquilino {
 
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)  
-    @Column(name="codigoInquilino")
-    private int codigoInquilino;
+    @Column(name="idinquilino")
+    private int idInquilino;
     
-    @Column(name="Nombre")
-    private int Nombre;
+    @Column(name="nombre")
+    private String nombre;
     
-    @Column(name="Apellido")
-    private int Apellido;
+    @Column(name="apellido")
+    private String apellido;
     
-    @Column(name="Telefono")	
-    private String Telefono;
+    @Column(name="telefono")	
+    private String telefono;
     
-    @Column(name="Correo")
-    private String Correo;
+    @Column(name="correo")
+    private String correo;
     
-    @Column(name="FechaIngreso")
-    private String FechaIngreso;
+    @Column(name="fechaingreso")
+    private String fechaIngreso;
 
-    
+    @JsonIgnore
     @OneToMany(mappedBy = "codigoCuota", cascade = CascadeType.ALL)
-    private List<Cuotas> Cuota = new ArrayList<>();
+    private List<Cuota> cuotas = new ArrayList<>();
 
+    @JsonIgnore
     @OneToOne
-    @JoinColumn(name="numApartamento", referencedColumnName = "numApartamento")
-    private Apartamento Apartamentos;	
+    @JoinColumn(name="numapartamento", referencedColumnName = "numapartamento")
+    private Apartamento apartamento;	
         
 }

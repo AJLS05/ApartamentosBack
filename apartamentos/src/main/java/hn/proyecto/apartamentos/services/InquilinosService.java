@@ -4,15 +4,14 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import hn.proyecto.apartamentos.model.Apartamento;
-import hn.proyecto.apartamentos.model.Inquilinos;
+import hn.proyecto.apartamentos.model.Inquilino;
 @Service
 public interface InquilinosService {
-    public Inquilinos crearInquilino(Inquilinos nvoInquilino, Apartamento Apartamento);
+    public Inquilino crearInquilino(Inquilino nvoInquilino);
 
-    public Inquilinos obtenerInquilino(int codigoInquilino);
+    public Inquilino obtenerInquilino(int idInquilino);
 
-    public String eliminarInquilino(int codigoInquilino);
+    public String eliminarInquilino(int idInquilino);
 
-    public List<Inquilinos> obtenerTodosInquilinos();
+    public List<Inquilino> obtenerTodosInquilinos();
 }

@@ -1,5 +1,7 @@
 package hn.proyecto.apartamentos.model;
 
+import java.util.Date;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -19,27 +21,30 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Cuotas {
+public class Cuota {
     					
     @Id
-    @Column(name="codigoCuota")
+    @Column(name="codigocuota")
     @GeneratedValue(strategy =  GenerationType.IDENTITY)  
     private int codigoCuota;
     
     @ManyToOne
-    @JoinColumn(name="codigoInquilino", referencedColumnName = "codigoInquilino")
-    private Inquilinos inquilino;
+    @JoinColumn(name="idinquilino", referencedColumnName = "idinquilino")
+    private Inquilino inquilino;
     
-    @Column(name="numApartamento")
-    private int numApartamento;
+    @ManyToOne
+    @JoinColumn(name = "numapartamento", referencedColumnName = "numapartamento")
+    private Apartamento apartamento;
     
-    @Column(name="Monto")	
-    private String Monto;
+    @Column(name="monto")	
+    private float monto;
     
-    @Column(name="Descripcion")
-    private String Descripcion;
+    @Column(name="descripcion")
+    private String descripcion;
     
-    @Column(name="FechaCobro;")
-    private String FechaCobro;	
+    @Column(name="fechacobro")
+    private Date fechaCobro;	
         
+    @Column(name = "cancelada")
+    private boolean cancelada;
 }

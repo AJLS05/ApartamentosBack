@@ -3,6 +3,8 @@ package hn.proyecto.apartamentos.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -18,8 +20,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
 @Entity
-@Table(name="apartamento")
+@Table(name="apartamentos")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -27,28 +30,29 @@ import lombok.Setter;
 public class Apartamento {
 
     @Id
-    @Column(name="numApartamento")
+    @Column(name="numapartamento")
     @GeneratedValue(strategy =  GenerationType.IDENTITY)  
     private int numApartamento;
     
-    @Column(name="AreaApart")
-    private int AreaApart;
+    @Column(name="area")
+    private float area;
     
-    @Column(name="PrecioXmetro")
-    private String PrecioXmetro;
+    @Column(name="precioxmetro")
+    private float precioXmetro;
     
-    @Column(name="Disponible")	
-    private boolean Disponible;
+    @Column(name="disponible")	
+    private boolean disponible;
     
     @ManyToOne
-    @JoinColumn(name="IdDueno", referencedColumnName = "IdDueno")
-    private Duenos Dueno;
+    @JoinColumn(name="iddueno", referencedColumnName = "iddueno")
+    private Dueno dueno;
     
     @OneToOne
-    @JoinColumn(name="codigoInquilino", referencedColumnName = "codigoInquilino")
-    private Inquilinos inquilino;
+    @JoinColumn(name="idinquilino", referencedColumnName = "idinquilino")
+    private Inquilino inquilino;
     
-    @OneToMany(mappedBy = "numApartamento", cascade = CascadeType.ALL)
-    private List<Cuotas> cuotas = new ArrayList<>();
+    @JsonIgnore
+    @OneToMany(mappedBy = "apartamento", cascade = CascadeType.ALL)
+    private List<Cuota> cuotas = new ArrayList<>();
         
 }

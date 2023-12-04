@@ -3,10 +3,9 @@ package hn.proyecto.apartamentos.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,41 +14,42 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import hn.proyecto.apartamentos.model.Apartamento;
-import hn.proyecto.apartamentos.model.Duenos;
+import hn.proyecto.apartamentos.model.Dueno;
 import hn.proyecto.apartamentos.services.Implements.DuenosServiceImpl;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
+@Tag(name = "Dueños", description = "Gestión de los dueños de los apartamentos")
 @RestController
-@RequestMapping("/Duenos")
+@RequestMapping("/api/duenos")
 class DuenosController {
 
     @Autowired
     private DuenosServiceImpl duenosServiceImpl;
 
+    @Operation(summary = "Obtener todos los dueños", description = "Obtiene todos los dueños de apartamentos")
     @GetMapping("/obtener/todos")
-    public List<Duenos> obtenerTodos() {
+    public List<Dueno> obtenerTodos() {
         return this.duenosServiceImpl.obtenerTodosDuenos();
     }
 
-    @GetMapping("/obtener")
-    public Duenos obtenerDueno(@RequestParam(name="IdDueno") int IdDueno){
-        return this.duenosServiceImpl.obtenerDueno(IdDueno);
+    
+    @Operation(summary = "Buscar dueño", description = "Busca un dueño de apartamentos")
+    @GetMapping("/buscar/{idDueno}")
+    public Dueno obtenerDueno(@PathVariable(name="idDueno") int idDueno){
+        return this.duenosServiceImpl.obtenerDueno(idDueno);
     }
 
+    @Operation(summary = "Crear nuevo dueño", description = "Crea un nuevo dueño de apartamentos")
     @PostMapping("/crear")
-    public Duenos crearDuenos(@RequestBody Duenos nvoDueno){
+    public Dueno crearDuenos(@RequestBody Dueno nvoDueno){
 
         return this.duenosServiceImpl.crearDueno(nvoDueno);
     }
 
-    @PutMapping("/agregarApartamento")
-    public String agregarApartamento(@RequestParam(name="IdDueno") int IdDueno,
-                                  @RequestBody List<Apartamento> Apartamentos){
-        return this.duenosServiceImpl.agregarDuenoApp(IdDueno, Apartamentos);
-    }
-
-
-    @DeleteMapping("/eliminar")
-    public String eliminarDueno(@RequestParam(name="IdDueno") int IdDueno){
+    @Operation(summary = "Eliminar dueño", description = "Elimina un dueño de apartamentos")
+    @DeleteMapping("/eliminar/{idDueno}")
+    public String eliminarDueno(@PathVariable(name="IdDueno") int IdDueno){
         return this.duenosServiceImpl.eliminarDueno(IdDueno);
     }
 }
